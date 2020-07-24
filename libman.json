@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bulma@0.9.0",
+      "destination": "wwwroot/css/bulma/"
+    },
+    {
+      "library": "font-awesome@5.14.0",
+      "destination": "wwwroot/css/font-awesome/"
+    }
+  ]
+}
