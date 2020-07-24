@@ -1,0 +1,70 @@
+﻿@page "/converter/area"
+@inject HttpClient Http
+
+@if (areaOptionUnits == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="columns">
+        <div class="column is-two-fifths">
+            <div class="field has-addons">
+                <p class="control">
+                    <input class="input is-medium is-primary" type="number" step="any" placeholder="Area"
+                           @bind-value="LeftInputArea"
+                           @bind-value:event="oninput">
+                </p>
+                <p class="control">
+                    <span class="select is-warning is-medium">
+                        <select>
+                            @foreach (var item in areaOptionUnits)
+                            {
+                                <option value="@item.value">@item.label</option>
+                            }
+                        </select>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="column is-one-fifth">
+            <span class="icon is-large">
+                <i class="fas fa-3x fa-exchange-alt"></i>
+            </span>
+        </div>
+        <div class="column is-two-fifths">
+            <div class="field has-addons">
+                <p class="control">
+                    <input class="input is-medium is-primary" type="number" step="any" placeholder="Area"
+                           @bind-value="RightInputArea">
+                </p>
+                <p class="control">
+                    <span class="select is-warning is-medium">
+                        <select>
+                            @foreach (var item in areaOptionUnits)
+                            {
+                                <option value="@item.value">@item.label</option>
+                            }
+                        </select>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+}
+@code {
+    public double LeftInputArea { get; set; }
+
+    private double _rightInputArea;
+    public double RightInputArea
+    {
+        get => LeftInputArea * 20;
+        set => _rightInputArea = value;
+    }
+
+    (string label, string value)[] areaOptionUnits;
+    protected override async Task OnInitializedAsync()
+    {
+        areaOptionUnits = await Http.GetFromJsonAsync<(string label, string value)[]>("data/area-units.json");
+    }
+}
