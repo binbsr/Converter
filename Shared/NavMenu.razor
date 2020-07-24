@@ -1,30 +1,38 @@
-﻿<div class="top-row pl-4 navbar navbar-dark">
-    <a class="navbar-brand" href="">Converter</a>
-    <button class="navbar-toggler" @onclick="ToggleNavMenu">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+﻿<div class="top-row pl-4">
+    <h3 class="title is-3">
+        <a href="">
+            <span class="icon">
+                <i class="fas fa-exchange-alt"></i>
+            </span>
+            Converter
+        </a>
+    </h3>
 </div>
 
 <div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul class="nav flex-column">
+    <ul>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
+            <NavLink class="nav-link" href="/length" Match="NavLinkMatch.All">
+                <span class="icon">
+                    <i class="fas fa-ruler"></i>
+                </span>
+                लम्बाइ (Length)
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="counter">
-                <span class="oi oi-plus" aria-hidden="true"></span> Counter
+            <NavLink class="nav-link" href="/area" Match="NavLinkMatch.All">
+                <span class="icon">
+                    <i class="fas fa-square"></i>
+                </span>
+                क्षेत्रफल (Area)
             </NavLink>
         </li>
         <li class="nav-item px-3">
-            <NavLink class="nav-link" href="fetchdata">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> Fetch data
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="/converter/area">
-                <span class="oi oi-list-rich" aria-hidden="true"></span> क्षेत्रफल
+            <NavLink class="nav-link" href="/volume" Match="NavLinkMatch.All">
+                <span class="icon">
+                    <i class="fas fa-cube"></i>
+                </span>
+                आयतन (Volume)
             </NavLink>
         </li>
     </ul>
