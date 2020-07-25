@@ -1,13 +1,15 @@
 ﻿@page "/area"
 @inject HttpClient Http
 
+@using Models
+
 @if (areaOptionUnits == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    <div class="columns">
+    <div class="columns has-text-centered pt-6">
         <div class="column is-two-fifths">
             <div class="field has-addons">
                 <p class="control">
@@ -17,10 +19,10 @@ else
                 </p>
                 <p class="control">
                     <span class="select is-warning is-medium">
-                        <select>
+                        <select @bind="SelectedUnitLeft">
                             @foreach (var item in areaOptionUnits)
                             {
-                                <option value="@item.value">@item.label</option>
+                                <option value="@item.Value">@item.Label</option>
                             }
                         </select>
                     </span>
@@ -40,10 +42,10 @@ else
                 </p>
                 <p class="control">
                     <span class="select is-warning is-medium">
-                        <select>
+                        <select @bind="SelectedUnitRight">
                             @foreach (var item in areaOptionUnits)
                             {
-                                <option value="@item.value">@item.label</option>
+                                <option value="@item.Value">@item.Label</option>
                             }
                         </select>
                     </span>
@@ -53,7 +55,7 @@ else
     </div>
 }
 @code {
-    public double LeftInputArea { get; set; }
+    public double LeftInputArea { get; set; } = 1;
 
     private double _rightInputArea;
     public double RightInputArea
@@ -62,9 +64,12 @@ else
         set => _rightInputArea = value;
     }
 
-    (string label, string value)[] areaOptionUnits;
+    public string SelectedUnitLeft { get; set; } = "bigha";
+    public string SelectedUnitRight { get; set; } = "katha";
+
+    DropdownOption[] areaOptionUnits;
     protected override async Task OnInitializedAsync()
     {
-        areaOptionUnits = await Http.GetFromJsonAsync<(string label, string value)[]>("data/area-units.json");
+        areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
     }
 }
