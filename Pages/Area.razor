@@ -1,7 +1,9 @@
 ﻿@page "/area"
-@inject HttpClient Http
+@inject ITransformer transformer
 
 @using Models
+@using Data
+@using Transformer
 
 @if (areaOptionUnits == null)
 {
@@ -60,16 +62,17 @@ else
     private double _rightInputArea;
     public double RightInputArea
     {
-        get => LeftInputArea * 20;
+        get => transformer.Transform(LeftInputArea, SelectedUnitLeft, SelectedUnitRight);
         set => _rightInputArea = value;
     }
 
-    public string SelectedUnitLeft { get; set; } = "bigha";
-    public string SelectedUnitRight { get; set; } = "katha";
+    public string SelectedUnitLeft { get; set; } = AreaUnit.Bigha;
+    public string SelectedUnitRight { get; set; } = AreaUnit.Katha;
 
     DropdownOption[] areaOptionUnits;
-    protected override async Task OnInitializedAsync()
+    protected override void OnInitialized()
     {
-        areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
+        //areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
+        areaOptionUnits = AreaData.FetchDropdownUnitOptions();
     }
 }
