@@ -2,17 +2,18 @@
 {
     public class AreaUnit
     {
-        public const string KhetMuri = "khetmuri";
-        public const string Ropani = "ropani";
-        public const string Bigha = "bigha";
-        public const string Katha = "katha";
-        public const string Dhur = "dhur";
-        public const string Aana = "aana";
-        public const string Paisa = "paisa";
-        public const string Daam = "daam";
-        public const string Hectare = "hectare";
-        public const string Squaremetre = "squaremetre";
-        public const string Squarekilometre = "squarekilometre";
+        internal const string KhetMuri = "khetmuri";
+        internal const string Ropani = "ropani";
+        internal const string Bigha = "bigha";
+        internal const string Katha = "katha";
+        internal const string Dhur = "dhur";
+        internal const string Aana = "aana";
+        internal const string Paisa = "paisa";
+        internal const string Daam = "daam";
+        internal const string Hectare = "hectare";
+        internal const string SquareMetre = "squaremetre";
+        internal const string SquareKilometre = "squarekilometre";
         internal const string Acre = "acre";
+        internal const string SquareFeet = "squarefeet";
     }
 }

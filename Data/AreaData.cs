@@ -1,28 +1,28 @@
 ﻿using Converter.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Converter.Data
 {
     public static class AreaData
     {
-        // Taking m^2 as base
+        // Taking squarefeet as base
         public static Dictionary<string, (string NepaliUnicode, double RatioToBase)> AvailableUnits => new Dictionary<string, (string, double)>
         {
-            [AreaUnit.KhetMuri] = ("खेतमुरी", 12718.0),
-            [AreaUnit.Ropani] = ("रोपनी", 508.72),
-            [AreaUnit.Bigha] = ("बिघा", 6772.63),
-            [AreaUnit.Katha] = ("कठ्ठा", 338.63),
-            [AreaUnit.Dhur] = ("धुर", 16.93),
-            [AreaUnit.Aana] = ("आना",31.80),
-            [AreaUnit.Paisa] = ("पैसा", 7.95),
-            [AreaUnit.Daam] = ("दाम", 1.99),
-            [AreaUnit.Acre] = ("एकड", 4046.856),
-            [AreaUnit.Hectare] = ("हेक्टर", 10000),
-            [AreaUnit.Squaremetre] = ("वर्ग मिटर", 1),
-            [AreaUnit.Squarekilometre] = ("वर्ग किलोमिटर", 1000)
+            [AreaUnit.KhetMuri] = ("खेतमुरी", 136900),
+            [AreaUnit.Ropani] = ("रोपनी", 5476),
+            [AreaUnit.Bigha] = ("बिघा", 72900),
+            [AreaUnit.Katha] = ("कठ्ठा", 3645),
+            [AreaUnit.Dhur] = ("धुर", 182.25),
+            [AreaUnit.Aana] = ("आना", 342.25),
+            [AreaUnit.Paisa] = ("पैसा", 85.5625),
+            [AreaUnit.Daam] = ("दाम", 21.390625),
+
+            [AreaUnit.Acre] = ("एकड", 43560),
+            [AreaUnit.Hectare] = ("हेक्टर", 107639.10417),
+            [AreaUnit.SquareFeet] = ("वर्ग फिट ", 1),
+            [AreaUnit.SquareMetre] = ("वर्ग मिटर", 10.76391),
+            [AreaUnit.SquareKilometre] = ("वर्ग किलोमिटर", 10763910.417)
         };
 
         public static (string, double) GetAreaUnit(string name)
