@@ -16,4 +16,18 @@
         internal const string Acre = "acre";
         internal const string SquareFeet = "squarefeet";
     }
+
+    public class LengthUnit
+    {
+        internal const string Mile = "mile";  
+        internal const string KiloMetre = "kilometre";
+        internal const string Metre = "metre";
+        internal const string Yard = "yard";
+        internal const string Feet = "feet";
+        internal const string Inch = "inch";
+        internal const string CentiMetre = "centimetre";
+        internal const string MilliMetre = "millimetre";
+        internal const string MicroMetre = "micrometre";
+        internal const string NanoMetre = "nanometre";
+    }
 }

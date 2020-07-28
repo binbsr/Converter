@@ -1,5 +1,7 @@
 ﻿@page "/area"
+
 @inject ITransformer transformer
+@inject IData data
 
 @using Models
 @using Data
@@ -73,6 +75,6 @@ else
     protected override void OnInitialized()
     {
         //areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
-        areaOptionUnits = AreaData.FetchDropdownUnitOptions();
+        areaOptionUnits = data.FetchDropdownUnitOptions();
     }
 }

@@ -9,9 +9,15 @@ namespace Converter.Transformer
 {
     public class AreaUnitFactory : IUnitFactory
     {
+        private readonly IData data;
+
+        public AreaUnitFactory(IData data)
+        {
+            this.data = data;
+        }
         public Unit GetUnit(string name)
         {
-            (_, double RatioToBase) = AreaData.GetAreaUnit(name);
+            (_, double RatioToBase) = data.GetAreaUnit(name);
             return new Unit(name, RatioToBase);
         }
     }
