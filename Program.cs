@@ -1,13 +1,9 @@
 using System;
 using System.Net.Http;
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using System.Text;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
-using Converter.Transformer;
+using Converter.Transform;
 using Converter.Data;
 
 namespace Converter
@@ -23,8 +19,9 @@ namespace Converter
 
             // DI Registrations
             builder.Services.AddScoped<IData, AreaData>();
-            builder.Services.AddScoped<IUnitFactory, AreaUnitFactory>();
-            builder.Services.AddScoped<ITransformer, AreaTransformer>();
+            builder.Services.AddScoped<IData, LengthData>();
+            builder.Services.AddScoped<ITransformer, Transformer>();
+            builder.Services.AddSingleton<AppSettings>();
 
             await builder.Build().RunAsync();
         }

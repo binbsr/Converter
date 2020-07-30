@@ -23,5 +23,7 @@ namespace Converter.Data
             [AreaUnit.SquareMetre] = ("वर्ग मिटर", 10.76391),
             [AreaUnit.SquareKilometre] = ("वर्ग किलोमिटर", 10763910.417)
         };
+
+        public string CurrentNamedInstance => nameof(AreaData);
     }
 }

@@ -6,9 +6,11 @@ namespace Converter.Data
 {
     public interface IData
     {
+        public string CurrentNamedInstance { get; }
+
         public abstract Dictionary<string, (string NepaliUnicode, double RatioToBase)> AvailableUnits { get; }
 
-        public (string, double) GetAreaUnit(string name)
+        public (string, double) GetUnitDescription(string name)
         {
             var contains = AvailableUnits.TryGetValue(name, value: out (string, double) unitData);
             if (contains)

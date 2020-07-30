@@ -1,9 +1,11 @@
 ﻿@page "/area"
 
-@inject IData data
+@inject AppSettings settings
+@inject ITransformer transformer
 
 @using Data
 @using Models
+@using Converter.Transform
 @using Converter.Components
 
 @if (areaOptionUnits == null)
@@ -22,6 +24,7 @@ else
     protected override void OnInitialized()
     {
         //areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
-        areaOptionUnits = data.FetchDropdownUnitOptions();
+        settings.CurrentDataInstance = nameof(AreaData);
+        areaOptionUnits = transformer.FetchDropdownUnitOptions();
     }
 }
