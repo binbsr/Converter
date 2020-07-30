@@ -1,0 +1,30 @@
+﻿@page "/length"
+
+@inject AppSettings settings
+@inject ITransformer transformer
+
+@using Models
+@using Data
+@using Converter.Transform
+@using Converter.Components
+
+@if (areaOptionUnits == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <ConvertDisplay AreaOptionUnits="@areaOptionUnits"
+                    UnitLeftDefaultValue="@LengthUnit.Mile"
+                    UnitRightDefaultValue="@LengthUnit.KiloMetre"/>
+}
+
+@code {
+    DropdownOption[] areaOptionUnits;
+    protected override void OnInitialized()
+    {
+        //areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
+        settings.CurrentDataInstance = nameof(LengthData);
+        areaOptionUnits = transformer.FetchDropdownUnitOptions();
+    }
+}
