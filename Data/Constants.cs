@@ -29,5 +29,7 @@
         internal const string MilliMetre = "millimetre";
         internal const string MicroMetre = "micrometre";
         internal const string NanoMetre = "nanometre";
+        internal const string Angul = "angul";
+        internal const string Dhanurgrah = "dhanurgrah";
     }
 }
