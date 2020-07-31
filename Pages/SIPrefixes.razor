@@ -1,0 +1,54 @@
+﻿@page "/si-prefixes"
+
+@inject HttpClient Http
+@using Converter.Models
+
+@if (siPrefixes == null)
+{
+    <p>Loading...</p>
+}
+else
+{
+    <table class="table is-narrow">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Base10</th>
+                <th><abbr title="Decimal value">Decimal</abbr></th>
+                <th><abbr title="English word">Word</abbr></th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Base10</th>
+                <th><abbr title="Decimal value">Decimal</abbr></th>
+                <th><abbr title="English word">Word</abbr></th>
+            </tr>
+        </tfoot>
+        <tbody>
+            @foreach (var item in siPrefixes)
+            {
+                <tr class="@(item.DecimalValue == "1" ? "is-selected" : "")">
+                    <td>@item.Name</td>
+                    <td>@item.Symbol</td>
+                    <td>@((MarkupString)item.Base10)</td>
+                    <td>@item.DecimalValue</td>
+                    <td>@item.InWords</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
+@code {
+
+    SIPrefix[] siPrefixes;
+
+    protected override async Task OnInitializedAsync()
+    {
+        siPrefixes = await Http.GetFromJsonAsync<SIPrefix[]>("data/si-metric-prefixes.json");
+    }
+}
