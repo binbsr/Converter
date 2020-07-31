@@ -20,8 +20,8 @@ namespace Converter.Transform
         public Unit GetUnit(string name)
         {
             IData dataInstance = dataInstances.FirstOrDefault(d => d.CurrentNamedInstance == AppSettings.CurrentDataInstance);
-            (_, double RatioToBase) = dataInstance.GetUnitDescription(name);
-            return new Unit(name, RatioToBase);
+            (string NpUnicode, string Shortform, string Details, double RatioToBase) = dataInstance.GetUnitDescription(name);
+            return new Unit(name, NpUnicode, Shortform, Details, RatioToBase);
         }
 
         public double Transform(double valueToConvert, string fromUnit, string toUnit)

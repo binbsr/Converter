@@ -23,7 +23,6 @@ else
     DropdownOption[] areaOptionUnits;
     protected override void OnInitialized()
     {
-        //areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
         settings.CurrentDataInstance = nameof(AreaData);
         areaOptionUnits = transformer.FetchDropdownUnitOptions();
     }
