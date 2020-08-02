@@ -1,10 +1,12 @@
-﻿<div class="top-row pl-4">
-    <h3 class="title is-3">
+﻿@inject IStringLocalizer<NavMenu> L
+
+<div class="top-row pl-4">
+    <h3 class="title is-4">
         <a href="">
             <span class="icon">
                 <i class="fas fa-exchange-alt"></i>
             </span>
-            Converter
+            @L["AppTitle"]
         </a>
     </h3>
 </div>
@@ -16,7 +18,7 @@
                 <span class="icon">
                     <i class="fas fa-ruler"></i>
                 </span>
-                लम्बाइ (Length)
+                @L["Length"]
             </NavLink>
         </li>
         <li class="nav-item px-3">
@@ -24,7 +26,7 @@
                 <span class="icon">
                     <i class="fas fa-square"></i>
                 </span>
-                क्षेत्रफल (Area)
+                @L["Area"]
             </NavLink>
         </li>
         <li class="nav-item px-3">
@@ -32,7 +34,7 @@
                 <span class="icon">
                     <i class="fas fa-cube"></i>
                 </span>
-                आयतन (Volume)
+                @L["Volume"]
             </NavLink>
         </li>
         <li class="nav-item px-3">
@@ -40,7 +42,7 @@
                 <span class="icon">
                     <i class="fas fa-weight"></i>
                 </span>
-               तौल (Weight)
+               @L["Weight"]
             </NavLink>
         </li>
         <li class="nav-item px-3">
@@ -48,7 +50,7 @@
                 <span class="icon">
                     <i class="fas fa-coins"></i>
                 </span>
-               मुद्रा विनिमय
+               @L["Currency"]
             </NavLink>
         </li>
         <li class="nav-item px-3">
@@ -56,7 +58,7 @@
                 <span class="icon">
                     <i class="fas fa-plug"></i>
                 </span>
-                मेट्रिक एकाइ उपसर्गहरू
+                @L["Prefixes"]
             </NavLink>
         </li>
     </ul>
