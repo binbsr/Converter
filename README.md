@@ -1,2 +1,2 @@
 # Converter
-Simple converter tool for different Nepali units for area, volume, lengths etc.
+Simple converter tool for different SI, Nepali and imperial units for area, volume, lengths etc.
