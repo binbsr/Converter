@@ -117,11 +117,25 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="IndexDescription" xml:space="preserve">
-    <value>यो अनुप्रयोग हाम्रो नेपालमा चलनचल्तिका एकाइहरुको रूपान्तरणको लागी सरल र उपयोगी छ|
-    यसको मदतले लम्बाइ, क्षेत्रफल्, आयतन इत्यादिका बिविन्न एकाइहरुको रूपान्तरण गर्नसक्नुहुनेछ|</value>
+  <data name="AppTitle" xml:space="preserve">
+    <value>Unit Converter</value>
   </data>
-  <data name="IndexTitle" xml:space="preserve">
-    <value>मापन एकाइहरुको रूपान्तरण अनुप्रयोग</value>
+  <data name="Area" xml:space="preserve">
+    <value>Area</value>
+  </data>
+  <data name="Currency" xml:space="preserve">
+    <value>Currency Exchange</value>
+  </data>
+  <data name="Length" xml:space="preserve">
+    <value>Length</value>
+  </data>
+  <data name="Prefixes" xml:space="preserve">
+    <value>SI Unit Prefixes</value>
+  </data>
+  <data name="Volume" xml:space="preserve">
+    <value>Volume</value>
+  </data>
+  <data name="Weight" xml:space="preserve">
+    <value>Weight</value>
   </data>
 </root>

@@ -8,13 +8,13 @@
 @using Converter.Transform
 @using Converter.Components
 
-@if (areaOptionUnits == null)
+@if (lengthOptionUnits == null)
 {
     <p><em>Loading...</em></p>
 }
 else
 {
-    <ConvertDisplay AreaOptionUnits="@areaOptionUnits"
+    <ConvertDisplay OptionUnits="@lengthOptionUnits"
                     UnitLeftDefaultValue="@LengthUnit.Mile"
                     UnitRightDefaultValue="@LengthUnit.KiloMetre"/>
 }
@@ -22,11 +22,11 @@ else
 
 
 @code {
-    DropdownOption[] areaOptionUnits;
+    DropdownOption[] lengthOptionUnits;
     protected override void OnInitialized()
     {
         //areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
         settings.CurrentDataInstance = nameof(LengthData);
-        areaOptionUnits = transformer.FetchDropdownUnitOptions();
+        lengthOptionUnits = transformer.FetchDropdownUnitOptions();
     }
 }

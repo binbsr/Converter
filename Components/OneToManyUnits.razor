@@ -1,0 +1,45 @@
+﻿@using Transform
+@using System.Linq
+
+@inject ITransformer transformer
+
+<div class="columns is-vcentered">
+    <div class="column is-5 has-text-right">
+        <NumericDisplay Value="@FromValue" Suffix="@shortForms[FromUnit]" />
+    </div>
+    <div class="column is-2 has-text-centered">
+        <span class="title is-1">=</span>
+    </div>
+    <div class="column is-5 has-text-left">
+        @if (ToUnitNames == null || shortForms == null)
+        {
+            <p>Loading...</p>
+        }
+        else
+        {
+            @foreach (string toUnit in ToUnitNames.Except(new[] { FromUnit }))
+            {
+                <NumericDisplay Value="@transformer.Transform(FromValue, FromUnit, toUnit)" Suffix="@shortForms[toUnit]" />
+            }
+        }
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public double FromValue { get; set; }
+
+    [Parameter]
+    public string FromUnit { get; set; }
+
+    [Parameter]
+    public string[] ToUnitNames { get; set; } = Array.Empty<string>();
+
+    Dictionary<string, string> shortForms;
+
+    protected override void OnInitialized()
+    {
+        shortForms = transformer.GetUnitShortForms();
+    }
+}

@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="IndexDescription" xml:space="preserve">
+    <value>This is easy to use and helpful tool convert SI and cutomary imperial mesurement units. With this tool, you can convert differnt units on length, area, volume etc.</value>
+  </data>
   <data name="IndexTitle" xml:space="preserve">
     <value>Measurement Unit Converter</value>
   </data>
