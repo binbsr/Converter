@@ -1,0 +1,15 @@
+﻿@using System.Globalization
+
+<span class="title is-2">@TitleFormatted</span>
+<span class="subtitle is-2">@SubTitle</span>
+
+@code {
+
+    [Parameter]
+    public double Title { get; set; }
+
+    public string TitleFormatted => Title.ToString("N3", CultureInfo.InvariantCulture);
+
+    [Parameter]
+    public string SubTitle { get; set; }
+}

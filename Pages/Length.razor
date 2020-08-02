@@ -1,10 +1,10 @@
-﻿@page "/area"
+﻿@page "/length"
 
 @inject AppSettings settings
 @inject ITransformer transformer
 
-@using Data
 @using Models
+@using Data
 @using Converter.Transform
 @using Converter.Components
 
@@ -14,16 +14,19 @@
 }
 else
 {
-    <ConvertDisplay AreaOptionUnits="areaOptionUnits" 
-                    UnitLeftDefaultValue="@AreaUnit.Aana" 
-                    UnitRightDefaultValue="@AreaUnit.SquareMetre" />
+    <ConvertDisplay AreaOptionUnits="@areaOptionUnits"
+                    UnitLeftDefaultValue="@LengthUnit.Mile"
+                    UnitRightDefaultValue="@LengthUnit.KiloMetre"/>
 }
+
+
+
 @code {
-    
     DropdownOption[] areaOptionUnits;
     protected override void OnInitialized()
     {
-        settings.CurrentDataInstance = nameof(AreaData);
+        //areaOptionUnits = await Http.GetFromJsonAsync<DropdownOption[]>("data/area-units.json");
+        settings.CurrentDataInstance = nameof(LengthData);
         areaOptionUnits = transformer.FetchDropdownUnitOptions();
     }
 }

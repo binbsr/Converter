@@ -1,0 +1,88 @@
+﻿
+@inject ITransformer transformer
+
+@using Transform
+@using Models
+@using Converter.Components 
+
+<div class="pt-6 has-text-centered">
+    <div class="columns">
+        <div class="column is-5 ">
+            <div class="field has-addons">
+                <p class="control">
+                    <input class="input is-medium is-primary" type="number" step="any" placeholder="Area"
+                           @bind-value="LeftInputArea"
+                           @bind-value:event="oninput">
+                </p>
+                <p class="control">
+                    <span class="select is-warning is-medium">
+                        <select @bind="SelectedUnitLeft">
+                            @foreach (var item in AreaOptionUnits)
+                            {
+                                <option value="@item.Value">@item.Label</option>
+                            }
+                        </select>
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="column is-2">
+            <span class="icon is-large">
+                <i class="fas fa-3x fa-equals"></i>
+            </span>
+        </div>
+        <div class="column is-5">
+            <div class="field has-addons">
+                <p class="control">
+                    <input class="input is-medium is-primary" type="number" step="any" placeholder="Area"
+                           @bind-value="RightInputArea">
+                </p>
+                <p class="control">
+                    <span class="select is-warning is-medium">
+                        <select @bind="SelectedUnitRight">
+                            @foreach (var item in AreaOptionUnits)
+                            {
+                                <option value="@item.Value">@item.Label</option>
+                            }
+                        </select>
+                    </span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="mt-6">
+        <NumericDisplay Title="@LeftInputArea" SubTitle="@SelectedUnitLeft"></NumericDisplay>
+        =
+        <NumericDisplay Title="@RightInputArea" SubTitle="@SelectedUnitRight"></NumericDisplay>
+    </div>
+</div>
+
+@code {
+
+    [Parameter]
+    public DropdownOption[] AreaOptionUnits { get; set; } = Array.Empty<DropdownOption>();
+
+    [Parameter]
+    public string UnitLeftDefaultValue { get; set; }
+
+    [Parameter]
+    public string UnitRightDefaultValue { get; set; }
+
+    public double LeftInputArea { get; set; } = 1;
+
+    private double _rightInputArea;
+    public double RightInputArea
+    {
+        get => transformer.Transform(LeftInputArea, SelectedUnitLeft, SelectedUnitRight);
+        set => _rightInputArea = value;
+    }
+
+    public string SelectedUnitLeft { get; set; }
+    public string SelectedUnitRight { get; set; }
+
+    protected override void OnParametersSet()
+    {
+        SelectedUnitLeft = UnitLeftDefaultValue;
+        SelectedUnitRight = UnitRightDefaultValue;
+    }
+}
