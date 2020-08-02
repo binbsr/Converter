@@ -1,15 +1,16 @@
 ﻿@using System.Globalization
-
-<span class="title is-2">@TitleFormatted</span>
-<span class="subtitle is-2">@SubTitle</span>
+<div>
+    <span class="title is-3">@ValueNormalized</span>
+    <span class="subtitle is-4">@Suffix</span>
+</div>
 
 @code {
 
     [Parameter]
-    public double Title { get; set; }
+    public double Value { get; set; }
 
-    public string TitleFormatted => Title.ToString("N3", CultureInfo.InvariantCulture);
+    public string ValueNormalized => Value.ToString("N3", CultureInfo.InvariantCulture);
 
     [Parameter]
-    public string SubTitle { get; set; }
+    public string Suffix { get; set; }
 }
