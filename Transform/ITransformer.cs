@@ -10,6 +10,7 @@ namespace Converter.Transform
     {
         public double Transform(double valueToConvert, string fromUnit, string toUnit);
         public Unit GetUnit(string name);
+        public Dictionary<string, string> GetUnitShortForms();
         public DropdownOption[] FetchDropdownUnitOptions();
     }
 }
