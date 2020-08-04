@@ -32,4 +32,10 @@
         internal const string Angul = "angul";
         internal const string Dhanurgrah = "dhanurgrah";
     }
+
+    public class Culture
+    {
+        internal const string English = "en-US";
+        internal const string Nepali = "ne-NP";
+    }
 }

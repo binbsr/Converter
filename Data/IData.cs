@@ -15,17 +15,17 @@ namespace Converter.Data
 
         public string CurrentNamedInstance { get; }
 
-        public abstract Dictionary<string, (string NepaliUnicode, string ShortForm, string Details, double RatioToBase)> AvailableUnits { get; }
+        public abstract Dictionary<string, (string NepaliUnicode, string ShortForm, string Details, double RatioToBase)> GetAvailableUnits();
 
         public (string, string, string, double) GetUnitDescription(string name)
         {
-            var contains = AvailableUnits.TryGetValue(name, value: out (string, string, string, double) unitData);
+            var contains = GetAvailableUnits().TryGetValue(name, value: out (string, string, string, double) unitData);
             if (contains)
                 return unitData;
             return default;
         }
 
         public DropdownOption[] FetchDropdownUnitOptions() =>
-            AvailableUnits.Select(option => new DropdownOption { Label = option.Value.NepaliUnicode, Value = option.Key }).ToArray();
+            GetAvailableUnits().Select(option => new DropdownOption { Label = option.Value.NepaliUnicode, Value = option.Key }).ToArray();
     }
 }

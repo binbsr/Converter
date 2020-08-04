@@ -41,7 +41,7 @@ namespace Converter.Transform
         public Dictionary<string, string> GetUnitShortForms()
         {
             IData dataInstance = dataInstances.FirstOrDefault(d => d.CurrentNamedInstance == AppSettings.CurrentDataInstance);
-            return dataInstance.AvailableUnits.Select(x => new { x.Key, x.Value.ShortForm }).ToDictionary(x => x.Key, x => x.ShortForm);
+            return dataInstance.GetAvailableUnits().Select(x => new { x.Key, x.Value.ShortForm }).ToDictionary(x => x.Key, x => x.ShortForm);
         }
     }
 }
