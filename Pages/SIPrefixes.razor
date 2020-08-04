@@ -1,6 +1,8 @@
 ﻿@page "/si-prefixes"
 
 @inject HttpClient Http
+@inject IStringLocalizer<SIPrefixes> L
+
 @using Converter.Models
 
 @if (siPrefixes == null)
@@ -12,11 +14,11 @@ else
     <table class="table is-narrow">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Base10</th>
-                <th><abbr title="Decimal value">Decimal</abbr></th>
-                <th><abbr title="English word">Word</abbr></th>
+                <th>@L["Name"]</th>
+                <th>@L["Symbol"]</th>
+                <th>@L["Base10"]</th>
+                <th><abbr title="Decimal value">@L["Decimal"]</abbr></th>
+                <th><abbr title="English word">@L["Word"]</abbr></th>
             </tr>
         </thead>
         <tfoot>

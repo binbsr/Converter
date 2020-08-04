@@ -2,6 +2,7 @@
 
 @inject AppSettings settings
 @inject ITransformer transformer
+@inject IStringLocalizer<Length> L
 
 @using Models
 @using Data
@@ -10,7 +11,7 @@
 
 @if (lengthOptionUnits == null)
 {
-    <p><em>Loading...</em></p>
+    <p>@L["Loading"]</p>
 }
 else
 {
@@ -18,8 +19,6 @@ else
                     UnitLeftDefaultValue="@LengthUnit.Mile"
                     UnitRightDefaultValue="@LengthUnit.KiloMetre"/>
 }
-
-
 
 @code {
     DropdownOption[] lengthOptionUnits;
