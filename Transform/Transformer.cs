@@ -19,7 +19,7 @@ namespace Converter.Transform
         public Unit GetUnit(string name)
         {
             IData dataInstance = dataInstances.FirstOrDefault(d => d.CurrentNamedInstance == AppSettings.CurrentDataInstance);
-            (string NpUnicode, string Shortform, string Details, double RatioToBase) = dataInstance.GetUnitDescription(name);
+            (string NpUnicode, string Shortform, char UnitFilterType, string Details, double RatioToBase) = dataInstance.GetUnitDescription(name);
             return new Unit(name, NpUnicode, Shortform, Details, RatioToBase);
         }
 

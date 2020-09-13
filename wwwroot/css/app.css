@@ -179,4 +179,9 @@ app {
         /* Never collapse the sidebar for wide screens */
         display: block;
     }
+
+    input.unittypecheck {
+        width: 1.5rem;
+        height: 1.5rem;
+    } 
 }

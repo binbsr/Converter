@@ -2,12 +2,40 @@
 @inject ITransformer transformer
 
 @using Transform
-@using Models 
+@using Models
 @using System.Linq
+@using Converter.Data;
 
 <div class="pt-4 has-text-centered">
     <div class="columns">
-        <div class="column is-5 ">
+        <div class="column is-4">
+            <p class="control is-size-4">
+                <label class="checkbox" title="International System of Units">
+                    <input type="checkbox" @bind="IsSIChecked" class="unittypecheck">
+                    SI Units
+                </label>
+            </p>
+        </div>
+        <div class="column is-4">
+            <p class="control is-size-4">
+                <label class="checkbox">
+                    <input type="checkbox" @bind="IsNepaliChecked" class="unittypecheck">
+                    चलनचल्तिको नेपाली एकाइहरू
+                </label>
+            </p>
+        </div>
+        <div class="column is-4">
+            <p class="control is-size-4">
+                <label class="checkbox">
+                    <input type="checkbox" @bind="IsImperialChecked" class="unittypecheck">
+                    British/US Imperial Units
+                </label>
+            </p>
+        </div>
+    </div>
+
+    <div class="columns">
+        <div class="column is-5">
             <div class="field has-addons">
                 <p class="control">
                     <input class="input is-medium is-primary" type="number" step="any" placeholder="Area"
@@ -17,7 +45,7 @@
                 <p class="control">
                     <span class="select is-warning is-medium">
                         <select @bind="SelectedUnitLeft">
-                            @foreach (var item in OptionUnits)
+                            @foreach (var item in ToBindOptionUnits)
                             {
                                 <option value="@item.Value">@item.Label</option>
                             }
@@ -40,7 +68,7 @@
                 <p class="control">
                     <span class="select is-warning is-medium">
                         <select @bind="SelectedUnitRight">
-                            @foreach (var item in OptionUnits)
+                            @foreach (var item in ToBindOptionUnits)
                             {
                                 <option value="@item.Value">@item.Label</option>
                             }
@@ -77,6 +105,30 @@
 
     public string SelectedUnitLeft { get; set; }
     public string SelectedUnitRight { get; set; }
+
+    public string SelectedUnitFilter { get; set; } = "nepali";
+    public bool IsSIChecked { get; set; } = true;
+    public bool IsNepaliChecked { get; set; } = true;
+    public bool IsImperialChecked { get; set; } = true;
+
+    public DropdownOption[] NepaliOptionUnits { get; set; }
+    public DropdownOption[] ImperialOptionUnits { get; set; }
+    public DropdownOption[] SIOptionUnits { get; set; }
+
+    public IEnumerable<DropdownOption> ToBindOptionUnits
+    {
+        get
+        {
+            List<DropdownOption> options = new List<DropdownOption>();
+            if (IsSIChecked)
+                options.AddRange(OptionUnits.Where(x => x.Type == IData.SI));
+            if (IsNepaliChecked)
+                options.AddRange(OptionUnits.Where(x => x.Type == IData.Nepali));
+            if (IsImperialChecked)
+                options.AddRange(OptionUnits.Where(x => x.Type == IData.Imperial));
+            return options;
+        }
+    }
 
     protected override void OnParametersSet()
     {
