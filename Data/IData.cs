@@ -13,19 +13,24 @@ namespace Converter.Data
         public const string ImperialAndUSCustomaryArea = "British imperial and US customary systems of area measurement";
         public const string SIUnit = "Internation System of Units (SI)";
 
+
+        public const char Nepali = 'n';
+        public const char SI = 's';
+        public const char Imperial = 'i';
+
         public string CurrentNamedInstance { get; }
 
-        public abstract Dictionary<string, (string NepaliUnicode, string ShortForm, string Details, double RatioToBase)> GetAvailableUnits();
+        public abstract Dictionary<string, (string NepaliUnicode, string ShortForm, char UnitFilterType, string Details, double RatioToBase)> GetAvailableUnits();
 
-        public (string, string, string, double) GetUnitDescription(string name)
+        public (string, string, char, string, double) GetUnitDescription(string name)
         {
-            var contains = GetAvailableUnits().TryGetValue(name, value: out (string, string, string, double) unitData);
+            var contains = GetAvailableUnits().TryGetValue(name, value: out (string, string, char, string, double) unitData);
             if (contains)
                 return unitData;
             return default;
         }
 
         public DropdownOption[] FetchDropdownUnitOptions() =>
-            GetAvailableUnits().Select(option => new DropdownOption { Label = option.Value.NepaliUnicode, Value = option.Key }).ToArray();
+            GetAvailableUnits().Select(option => new DropdownOption { Label = option.Value.NepaliUnicode, Value = option.Key, Type=option.Value.UnitFilterType }).ToArray();
     }
 }
