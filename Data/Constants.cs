@@ -30,7 +30,13 @@
         internal const string MicroMetre = "micrometre";
         internal const string NanoMetre = "nanometre";
         internal const string Angul = "angul";
-        internal const string Dhanurgrah = "dhanurgrah";
+        internal const string Dhanurgrah = "dhanurgrah";        
+        internal const string Dhanurmushti = "dhanurmushti";
+        internal const string Bittaa = "bittaa";
+        internal const string Haath = "haath ";
+        internal const string Dhanush = "dhanush";
+        internal const string Kosh = "kosh";
+        internal const string Yojan = "yojan";
     }
 
     public class Culture
