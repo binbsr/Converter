@@ -6,34 +6,36 @@
 @using System.Linq
 @using Converter.Data;
 
-<div class="pt-4 has-text-centered">
+<div class="notification is-success is-light has-text-centered">
     <div class="columns">
         <div class="column is-4">
-            <p class="control is-size-4">
-                <label class="checkbox" title="International System of Units">
+            <p class="control is-size-5">
+                <label class="checkbox" title="Check this box to include SI units in dropdown below">
                     <input type="checkbox" @bind="IsSIChecked" class="unittypecheck">
-                    SI Units
+                    International System (SI) Units
                 </label>
             </p>
         </div>
         <div class="column is-4">
-            <p class="control is-size-4">
-                <label class="checkbox">
+            <p class="control is-size-5">
+                <label class="checkbox" title="Check this box to include नेपाली units in dropdown below">
                     <input type="checkbox" @bind="IsNepaliChecked" class="unittypecheck">
                     चलनचल्तिको नेपाली एकाइहरू
                 </label>
             </p>
         </div>
         <div class="column is-4">
-            <p class="control is-size-4">
-                <label class="checkbox">
+            <p class="control is-size-5">
+                <label class="checkbox" title="Check this box to include imperial units in dropdown below">
                     <input type="checkbox" @bind="IsImperialChecked" class="unittypecheck">
                     British/US Imperial Units
                 </label>
             </p>
         </div>
     </div>
+</div>
 
+<div class="notification is-success is-light has-text-centered">
     <div class="columns">
         <div class="column is-5">
             <div class="field has-addons">
@@ -78,9 +80,9 @@
             </div>
         </div>
     </div>
-    <div class="mt-4">
-        <OneToManyUnits FromValue="@LeftInput" FromUnit="@SelectedUnitLeft" ToUnitNames="@OptionUnits.Select(x => x.Value).ToArray()" />
-    </div>
+</div>
+<div class="notification is-success is-light has-text-centered">
+    <OneToManyUnits FromValue="@LeftInput" FromUnit="@SelectedUnitLeft" ToUnitNames="@OptionUnits.Select(x => x.Value).ToArray()" />
 </div>
 
 @code {
@@ -106,14 +108,9 @@
     public string SelectedUnitLeft { get; set; }
     public string SelectedUnitRight { get; set; }
 
-    public string SelectedUnitFilter { get; set; } = "nepali";
     public bool IsSIChecked { get; set; } = true;
     public bool IsNepaliChecked { get; set; } = true;
     public bool IsImperialChecked { get; set; } = true;
-
-    public DropdownOption[] NepaliOptionUnits { get; set; }
-    public DropdownOption[] ImperialOptionUnits { get; set; }
-    public DropdownOption[] SIOptionUnits { get; set; }
 
     public IEnumerable<DropdownOption> ToBindOptionUnits
     {
