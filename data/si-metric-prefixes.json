@@ -1,0 +1,149 @@
+﻿[
+  {
+    "name": "yotta",
+    "symbol": "Y",
+    "base10": "10<sup>24</sup>",
+    "decimalValue": "1000000000000000000000000",
+    "inWords": "septillion"
+  },
+  {
+    "name": "zetta",
+    "symbol": "Z",
+    "base10": "10<sup>21</sup>",
+    "decimalValue": "1000000000000000000000",
+    "inWords": "sextillion"
+  },
+  {
+    "name": "exa",
+    "symbol": "E",
+    "base10": "10<sup>18</sup>",
+    "decimalValue": "1000000000000000000",
+    "inWords": "quintillion"
+  },
+  {
+    "name": "peta",
+    "symbol": "P",
+    "base10": "10<sup>15</sup>",
+    "decimalValue": "1000000000000000",
+    "inWords": "quadrillion"
+  },
+  {
+    "name": "tera",
+    "symbol": "T",
+    "base10": "10<sup>12</sup>",
+    "decimalValue": "1000000000000",
+    "inWords": "trillion"
+  },
+  {
+    "name": "giga",
+    "symbol": "G",
+    "base10": "10<sup>9</sup>",
+    "decimalValue": "1000000000",
+    "inWords": "billion"
+  },
+  {
+    "name": "mega",
+    "symbol": "M",
+    "base10": "10<sup>6</sup>",
+    "decimalValue": "1000000",
+    "inWords": "million"
+  },
+  {
+    "name": "kilo",
+    "symbol": "k",
+    "base10": "10<sup>3</sup>",
+    "decimalValue": "1000",
+    "inWords": "thousand"
+  },
+  {
+    "name": "hecto",
+    "symbol": "h",
+    "base10": "10<sup>2</sup>",
+    "decimalValue": "100",
+    "inWords": "hundred"
+  },
+  {
+    "name": "deca",
+    "symbol": "da",
+    "base10": "10<sup>1</sup>",
+    "decimalValue": "10",
+    "inWords": "ten"
+  },
+  {
+    "name": "",
+    "symbol": "",
+    "base10": "10<sup>0</sup>",
+    "decimalValue": "1",
+    "inWords": "one"
+  },
+  {
+    "name": "deci",
+    "symbol": "d",
+    "base10": "10<sup>-1</sup>",
+    "decimalValue": "0.1",
+    "inWords": "tenth"
+  },
+  {
+    "name": "centi",
+    "symbol": "c",
+    "base10": "10<sup>-2</sup>",
+    "decimalValue": "0.01",
+    "inWords": "hundredth"
+  },
+  {
+    "name": "milli",
+    "symbol": "m",
+    "base10": "10<sup>-3</sup>",
+    "decimalValue": "0.001",
+    "inWords": "thousandth"
+  },
+  {
+    "name": "micro",
+    "symbol": "μ",
+    "base10": "10<sup>-6</sup>",
+    "decimalValue": "0.000001",
+    "inWords": "millionth"
+  },
+  {
+    "name": "nano",
+    "symbol": "n",
+    "base10": "10<sup>-9</sup>",
+    "decimalValue": "0.000000001",
+    "inWords": "billionth"
+  },
+  {
+    "name": "pico",
+    "symbol": "p",
+    "base10": "10<sup>-12</sup>",
+    "decimalValue": "0.000000000001",
+    "inWords": "trillionth"
+  },
+  {
+    "name": "femto",
+    "symbol": "f",
+    "base10": "10<sup>-15</sup>",
+    "decimalValue": "0.000000000000001",
+    "inWords": "quadrillionth"
+  },
+  {
+    "name": "atto",
+    "symbol": "a",
+    "base10": "10<sup>-18</sup>",
+    "decimalValue": "0.000000000000000001",
+    "inWords": "quintillionth"
+  },
+  {
+    "name": "zepto",
+    "symbol": "z",
+    "base10": "10<sup>-21</sup>",
+    "decimalValue": "0.000000000000000000001",
+    "inWords": "sextillionth"
+  },
+  {
+    "name": "yocto",
+    "symbol": "y",
+    "base10": "10<sup>-24</sup>",
+    "decimalValue": "0.000000000000000000000001",
+    "inWords": "septillionth"
+  }
+]
