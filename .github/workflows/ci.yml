@@ -28,7 +28,11 @@ jobs:
         html_path: ${{ env.PUBLISH_DIR }}/index.html
         base_href: /Converter/
 
-    # G. This step commits all files from the wwwroot folder to the gh-pages branch
+    # G. Add .nojekyll file
+    - name: Add .nojekyll file
+      run: touch ${{ env.PUBLISH_DIR }}/.nojekyll
+      
+    # H. This step commits all files from the wwwroot folder to the gh-pages branch
     - name: GitHub Pages
       if: success()
       uses: crazy-max/ghaction-github-pages@v1.5.1
