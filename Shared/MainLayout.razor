@@ -1,22 +1,25 @@
 ﻿@inherits LayoutComponentBase
 
 @using Converter.Components
+@inject IStringLocalizer<NavMenu> L
 
 <MudThemeProvider />
 
 <MudLayout>
     <MudAppBar Elevation="1">
         <MudIconButton Icon="@Icons.Material.Filled.Menu" Color="Color.Inherit" Edge="Edge.Start" OnClick="@((e) => DrawerToggle())" />
-        <MudText Typo="Typo.h5" Class="ml-3">Application</MudText>
+        <MudText Typo="Typo.h5" Class="ml-3">@L["AppTitle"]</MudText>
+        
         <MudSpacer />
-        <MudIconButton Icon="@Icons.Material.Filled.MoreVert" Color="Color.Inherit" Edge="Edge.End" />
-        <CultureSelect />
+        <MudElement Style="width:200px">
+            <CultureSelect />
+        </MudElement>
     </MudAppBar>
     <MudDrawer @bind-Open="_drawerOpen" ClipMode="DrawerClipMode.Always" Elevation="2">
         <NavMenu />
     </MudDrawer>
     <MudMainContent>
-        @Body
+        @Body   
     </MudMainContent>
 </MudLayout>
 @code {

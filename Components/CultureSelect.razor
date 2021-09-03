@@ -3,27 +3,21 @@
 @inject IJSRuntime JSRuntime
 @inject NavigationManager Nav
 
-<div class="control has-icons-left">
-    <div class="select">
-        <select @bind="Culture">
-            @foreach (var culture in supportedCultures)
-            {
-                <option value="@culture">@culture.NativeName</option>
-            }
-        </select>
-    </div>
-    <span class="icon is-left">
-        <i class="fas fa-globe"></i>
-    </span>
-</div>
+<MudSelect Placeholder="Select culture"
+           @bind-Value="Culture"
+           HelperText="Language"
+           ToStringFunc="@convertFunc"
+           OffsetY="true"
+           OpenIcon="@Icons.Material.Filled.Language"
+           CloseIcon="@Icons.Material.Filled.Flag"
+           AdornmentColor="Color.Tertiary">
+    <MudSelectItem Value="@(CultureInfo.GetCultureInfo("ne-NP"))"></MudSelectItem>
+    <MudSelectItem Value="@(CultureInfo.GetCultureInfo("en-US"))"></MudSelectItem>
+</MudSelect>
 
 @code
 {
-    CultureInfo[] supportedCultures = new[]
-    {
-        new CultureInfo("en-US"),
-        new CultureInfo("ne-NP"),
-    };
+    private Func<CultureInfo, string> convertFunc = ci => ci?.DisplayName;
 
     CultureInfo Culture
     {
