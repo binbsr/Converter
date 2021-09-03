@@ -26,6 +26,8 @@ namespace Converter
             builder.Services.AddScoped<ITransformer, Transformer>();
             builder.Services.AddSingleton<AppSettings>();
 
+            builder.Services.AddAntDesign();
+
             var host = builder.Build();
             var jsInterop = host.Services.GetRequiredService<IJSRuntime>();
             var result = await jsInterop.InvokeAsync<string>("blazorCulture.get");
