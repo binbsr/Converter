@@ -6,44 +6,35 @@
 @using System.Linq
 @using Converter.Data;
 
-<div class="notification is-success is-light has-text-centered">
-    <div class="columns">
-        <div class="column is-4">
-            <p class="control is-size-5">
-                <label class="checkbox" title="Check this box to include SI units in dropdown below">
-                    <input type="checkbox" @bind="IsSIChecked" class="unittypecheck">
-                    International System (SI) Units
-                </label>
-            </p>
-        </div>
-        <div class="column is-4">
-            <p class="control is-size-5">
-                <label class="checkbox" title="Check this box to include नेपाली units in dropdown below">
-                    <input type="checkbox" @bind="IsNepaliChecked" class="unittypecheck">
-                    चलनचल्तिको नेपाली एकाइहरू
-                </label>
-            </p>
-        </div>
-        <div class="column is-4">
-            <p class="control is-size-5">
-                <label class="checkbox" title="Check this box to include imperial units in dropdown below">
-                    <input type="checkbox" @bind="IsImperialChecked" class="unittypecheck">
-                    British/US Imperial Units
-                </label>
-            </p>
-        </div>
-    </div>
-</div>
+<MudPaper Elevation="3" Class="d-flex justify-space-around ma-2 pa-2">
+    <MudSwitch @bind-Checked="@IsSIChecked" Color="Color.Primary" Label="International System (SI) Units" />
+    <MudSwitch @bind-Checked="@IsNepaliChecked" Color="Color.Primary" Label="चलनचल्तिको नेपाली एकाइहरू" />
+    <MudSwitch @bind-Checked="@IsImperialChecked" Color="Color.Primary" Label="British/US Imperial Units" />
+</MudPaper>
+
+<MudPaper Elevation="3" Class="d-flex justify-space-around ma-2 pa-2">
+    <MudNumericField Value="LeftInput"
+                     Immediate="true"
+                     Label="@SelectedUnitLeft" 
+                     Variant="Variant.Text" />
+    <p>@LeftInput</p>
+    <MudSelect T="string" Label="Select From Unit" OffsetY="true">
+        <MudSelectItem Value="@("Cappuccino")" />
+        <MudSelectItem Value="@("Cafe Latte")" />
+        <MudSelectItem Value="@("Espresso")" />
+        <MudSelectItem Value="@("Irish Coffee")" />
+    </MudSelect>
+</MudPaper>
 
 <div class="notification is-success is-light has-text-centered">
     <div class="columns">
         <div class="column is-5">
             <div class="field has-addons">
-                <p class="control">
+                @*<p class="control">
                     <input class="input is-medium is-primary" type="number" step="any" placeholder="Area"
                            @bind-value="LeftInput"
                            @bind-value:event="oninput">
-                </p>
+                </p>*@
                 <p class="control">
                     <span class="select is-warning is-medium">
                         <select @bind="SelectedUnitLeft">
