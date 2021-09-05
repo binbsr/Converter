@@ -3,27 +3,30 @@
 
 @inject ITransformer transformer
 
-<div class="columns is-vcentered">
-    <div class="column is-5">
+<MudGrid Class="d-flex align-center">
+    <MudItem xs="4" sm="4" md="4" Style="text-align:right;">
         <NumericDisplay Value="@FromValue" Suffix="@shortForms[FromUnit]" />
-    </div>
-    <div class="column is-2">
-        <span class="title is-1">=</span>
-    </div>
-    <div class="column is-5 has-text-left">
+    </MudItem>
+
+    <MudItem xs="2" sm="2" md="2" Style="text-align:center;">
+        <MudText Typo="Typo.h1" Color="Color.Info">=</MudText>
+    </MudItem>
+    
+    <MudItem xs="6" sm="6" md="6" Style="text-align:left;">
         @if (ToUnitNames == null || shortForms == null)
         {
             <p>Loading...</p>
         }
         else
         {
-            @foreach (string toUnit in ToUnitNames.Except(new[] { FromUnit }))
+            var filteredToUnitNames = ToUnitNames.Except(new[] { FromUnit });
+            @foreach (string toUnit in filteredToUnitNames)
             {
                 <NumericDisplay Value="@transformer.Transform(FromValue, FromUnit, toUnit)" Suffix="@shortForms[toUnit]" />
             }
         }
-    </div>
-</div>
+    </MudItem>
+</MudGrid>
 
 @code {
 

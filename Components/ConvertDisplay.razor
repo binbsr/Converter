@@ -6,75 +6,57 @@
 @using System.Linq
 @using Converter.Data;
 
-<MudPaper Elevation="3" Class="d-flex justify-space-around ma-2 pa-2">
-    <MudSwitch @bind-Checked="@IsSIChecked" Color="Color.Primary" Label="International System (SI) Units" />
-    <MudSwitch @bind-Checked="@IsNepaliChecked" Color="Color.Primary" Label="चलनचल्तिको नेपाली एकाइहरू" />
-    <MudSwitch @bind-Checked="@IsImperialChecked" Color="Color.Primary" Label="British/US Imperial Units" />
-</MudPaper>
+<MudContainer Class="pa-4">
+    <MudPaper Class="d-flex justify-space-around pa-2">
+        <MudSwitch @bind-Checked="@IsSIChecked" Color="Color.Primary" Label="International System (SI) Units" />
+        <MudSwitch @bind-Checked="@IsNepaliChecked" Color="Color.Primary" Label="चलनचल्तिको नेपाली एकाइहरू" />
+        <MudSwitch @bind-Checked="@IsImperialChecked" Color="Color.Primary" Label="British/US Imperial Units" />
+    </MudPaper>
 
-<MudPaper Elevation="3" Class="d-flex justify-space-around ma-2 pa-2">
-    <MudNumericField Value="LeftInput"
-                     Immediate="true"
-                     Label="@SelectedUnitLeft" 
-                     Variant="Variant.Text" />
-    <p>@LeftInput</p>
-    <MudSelect T="string" Label="Select From Unit" OffsetY="true">
-        <MudSelectItem Value="@("Cappuccino")" />
-        <MudSelectItem Value="@("Cafe Latte")" />
-        <MudSelectItem Value="@("Espresso")" />
-        <MudSelectItem Value="@("Irish Coffee")" />
-    </MudSelect>
-</MudPaper>
+    <MudGrid Class="my-4">
+        <MudItem xs="12" sm="12" md="5" Class="d-flex align-center justify-center">
+            <MudNumericField @bind-Value="LeftInput"
+                             Label="@SelectedUnitLeft"
+                             Immediate="true"
+                             Variant="Variant.Text" />
+            <MudSelect T="string" 
+                       Label="From Unit"
+                       @bind-Value="SelectedUnitLeft" 
+                       Variant="Variant.Filled" 
+                       OffsetY="true">
+                @foreach (var item in ToBindOptionUnits)
+                {
+                    <MudSelectItem Value="@item.Value">@item.Label</MudSelectItem>
+                }
+            </MudSelect>
+        </MudItem>
+        <MudItem xs="12" sm="12" md="2" Class="d-flex align-center justify-center">
+            <MudIcon Style="font-size:4rem;" Icon="@Icons.Material.Filled.Repeat" Color="@Color.Info" />
+        </MudItem>
+        <MudItem xs="12" sm="12" md="5" Class="d-flex align-center justify-center">
+            <MudNumericField @bind-Value="RightInput"
+                             Label="@SelectedUnitRight"
+                             Disabled="true"
+                             Variant="Variant.Text" />
+            <MudSelect T="string"
+                       Label="To Unit"
+                       @bind-Value="SelectedUnitRight"
+                       Variant="Variant.Filled"
+                       OffsetY="true">
+                @foreach (var item in ToBindOptionUnits)
+                {
+                    <MudSelectItem Value="@item.Value">@item.Label</MudSelectItem>
+                }
+            </MudSelect>
+        </MudItem>
+    </MudGrid>
 
-<div class="notification is-success is-light has-text-centered">
-    <div class="columns">
-        <div class="column is-5">
-            <div class="field has-addons">
-                @*<p class="control">
-                    <input class="input is-medium is-primary" type="number" step="any" placeholder="Area"
-                           @bind-value="LeftInput"
-                           @bind-value:event="oninput">
-                </p>*@
-                <p class="control">
-                    <span class="select is-warning is-medium">
-                        <select @bind="SelectedUnitLeft">
-                            @foreach (var item in ToBindOptionUnits)
-                            {
-                                <option value="@item.Value">@item.Label</option>
-                            }
-                        </select>
-                    </span>
-                </p>
-            </div>
-        </div>
-        <div class="column is-2">
-            <span class="icon is-large">
-                <i class="fas fa-3x fa-hand-point-right"></i>
-            </span>
-        </div>
-        <div class="column is-5">
-            <div class="field has-addons">
-                <p class="control">
-                    <input class="input is-medium is-primary" type="number" step="any" placeholder="Area"
-                           @bind-value="RightInput" disabled>
-                </p>
-                <p class="control">
-                    <span class="select is-warning is-medium">
-                        <select @bind="SelectedUnitRight">
-                            @foreach (var item in ToBindOptionUnits)
-                            {
-                                <option value="@item.Value">@item.Label</option>
-                            }
-                        </select>
-                    </span>
-                </p>
-            </div>
-        </div>
-    </div>
-</div>
-<div class="notification is-success is-light has-text-centered">
-    <OneToManyUnits FromValue="@LeftInput" FromUnit="@SelectedUnitLeft" ToUnitNames="@OptionUnits.Select(x => x.Value).ToArray()" />
-</div>
+    <MudPaper>
+        <OneToManyUnits FromValue="@LeftInput"
+                        FromUnit="@SelectedUnitLeft"
+                        ToUnitNames="@OptionUnits.Select(x => x.Value).ToArray()" />
+    </MudPaper>
+</MudContainer>
 
 @code {
 
