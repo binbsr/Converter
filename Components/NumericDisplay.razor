@@ -1,7 +1,8 @@
 ﻿@using System.Globalization
+
 <div>
-    <span class="title is-5">@ValueNormalized</span>
-    <span class="subtitle is-5">@((MarkupString)Suffix)</span>
+    <MudText Typo="Typo.body1" Inline="true">@ValueNormalized</MudText>
+    <MudText Typo="Typo.body2" Inline="true">@((MarkupString)Suffix)</MudText>
 </div>
 
 @code {
@@ -9,7 +10,7 @@
     [Parameter]
     public double Value { get; set; }
 
-    public string ValueNormalized => Value.ToString("N3", CultureInfo.InvariantCulture);
+    public string ValueNormalized => Value.ToString("N4", CultureInfo.InvariantCulture);
 
     [Parameter]
     public string Suffix { get; set; }

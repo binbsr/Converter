@@ -11,10 +11,8 @@
           length (yard to metres, kosh to km etc.), volumes (mana to ml, muri to pathi etc.)" />
     <title>Unit Converter</title>
     <base href="/" />
-    <link href="css/bulma/bulma.min.css" rel="stylesheet" />
-    <link href="css/font-awesome/css/all.min.css" rel="stylesheet" />
-    <link href="css/app.css" rel="stylesheet" />
-    <link href="Converter.styles.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
+    <link href="_content/MudBlazor/MudBlazor.min.css" rel="stylesheet" />
 
     <link href="manifest.json" rel="manifest" />
     <link rel="apple-touch-icon" sizes="512x512" href="icon-512.png" />
@@ -52,7 +50,9 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
+    <script src="_content/MudBlazor/MudBlazor.min.js"></script>
     <script src="_framework/blazor.webassembly.js" autostart="false"></script>
+
     <script>
         window.blazorCulture = {
             get: () => window.localStorage['BlazorCulture'],

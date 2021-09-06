@@ -7,6 +7,7 @@ using Converter.Transform;
 using Converter.Data;
 using System.Globalization;
 using Microsoft.JSInterop;
+using MudBlazor.Services;
 
 namespace Converter
 {
@@ -25,6 +26,8 @@ namespace Converter
             builder.Services.AddScoped<IData, LengthData>();
             builder.Services.AddScoped<ITransformer, Transformer>();
             builder.Services.AddSingleton<AppSettings>();
+
+            builder.Services.AddMudServices();
 
             var host = builder.Build();
             var jsInterop = host.Services.GetRequiredService<IJSRuntime>();

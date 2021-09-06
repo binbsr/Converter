@@ -1,76 +1,14 @@
 ﻿@inject IStringLocalizer<NavMenu> L
 
-<div class="top-row pl-4">
-    <h3 class="title is-4">
-        <a href="">
-            <span class="icon">
-                <i class="fas fa-exchange-alt"></i>
-            </span>
-            @L["AppTitle"]
-        </a>
-    </h3>
-</div>
-
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
-    <ul>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="length" Match="NavLinkMatch.All">
-                <span class="icon">
-                    <i class="fas fa-ruler"></i>
-                </span>
-                @L["Length"]
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="area" Match="NavLinkMatch.All">
-                <span class="icon">
-                    <i class="fas fa-square"></i>
-                </span>
-                @L["Area"]
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="volume" Match="NavLinkMatch.All">
-                <span class="icon">
-                    <i class="fas fa-cube"></i>
-                </span>
-                @L["Volume"]
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="weight" Match="NavLinkMatch.All">
-                <span class="icon">
-                    <i class="fas fa-weight"></i>
-                </span>
-               @L["Weight"]
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="currencies" Match="NavLinkMatch.All">
-                <span class="icon">
-                    <i class="fas fa-coins"></i>
-                </span>
-               @L["Currency"]
-            </NavLink>
-        </li>
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="si-prefixes" Match="NavLinkMatch.All">
-                <span class="icon">
-                    <i class="fas fa-plug"></i>
-                </span>
-                @L["Prefixes"]
-            </NavLink>
-        </li>
-    </ul>
-</div>
-
-@code {
-    private bool collapseNavMenu = true;
-
-    private string NavMenuCssClass => collapseNavMenu ? "collapse" : null;
-
-    private void ToggleNavMenu()
-    {
-        collapseNavMenu = !collapseNavMenu;
-    }
-}
+<MudPaper Class="d-inline-flex py-3" Square="true">
+    <MudNavMenu Class="mud-width-full">
+        <MudNavLink Href="/length" Icon="@Icons.Filled.LinearScale">@L["Length"]</MudNavLink>
+        <MudNavLink Href="/area" Icon="@Icons.Filled.SpaceDashboard">@L["Area"]</MudNavLink>
+        <MudNavLink Href="/volume" Icon="@Icons.Filled.FilterAlt">@L["Volume"]</MudNavLink>
+        <MudNavLink Href="/weight" Icon="@Icons.Filled.Circle">@L["Weight"]</MudNavLink>
+        <MudNavGroup Title="More" Icon="@Icons.Filled.More" Expanded="true">
+            <MudNavLink Href="/currency" Icon="@Icons.Filled.Money" IconColor="Color.Success">@L["Currency"]</MudNavLink>
+            <MudNavLink Href="/si-prefixes" Icon="@Icons.Filled.SkipPrevious" IconColor="Color.Info">@L["Prefixes"]</MudNavLink>
+        </MudNavGroup>
+    </MudNavMenu>
+</MudPaper>
