@@ -2,7 +2,15 @@
 
 @inject IStringLocalizer<Index> L
 
-<p class="title is-3">@L["IndexTitle"]</p>
-<p class="subtitle is-4">
-    @L["IndexDescription"]
-</p>
+<MudContainer Class="pt-6">
+    <MudText Typo="Typo.h4" Align="Align.Center">
+        @L["IndexTitle"]
+    </MudText>
+
+    <hr class="mt-3" />
+    <hr class="mb-3" />
+
+    <MudText Typo="Typo.h5" Align="Align.Center">
+        @L["IndexDescription"]
+    </MudText>
+</MudContainer>

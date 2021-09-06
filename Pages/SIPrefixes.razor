@@ -5,45 +5,42 @@
 
 @using Converter.Models
 
-@if (siPrefixes == null)
-{
-    <p>Loading...</p>
-}
-else
-{
-    <table class="table is-narrow">
-        <thead>
-            <tr>
-                <th>@L["Name"]</th>
-                <th>@L["Symbol"]</th>
-                <th>@L["Base10"]</th>
-                <th><abbr title="Decimal value">@L["Decimal"]</abbr></th>
-                <th><abbr title="English word">@L["Word"]</abbr></th>
-            </tr>
-        </thead>
-        <tfoot>
-            <tr>
-                <th>Name</th>
-                <th>Symbol</th>
-                <th>Base10</th>
-                <th><abbr title="Decimal value">Decimal</abbr></th>
-                <th><abbr title="English word">Word</abbr></th>
-            </tr>
-        </tfoot>
-        <tbody>
-            @foreach (var item in siPrefixes)
-            {
-                <tr class="@(item.DecimalValue == "1" ? "is-selected" : "")">
-                    <td>@item.Name</td>
-                    <td>@item.Symbol</td>
-                    <td>@((MarkupString)item.Base10)</td>
-                    <td>@item.DecimalValue</td>
-                    <td>@item.InWords</td>
+<MudContainer Class="py-3">
+    @if (siPrefixes == null)
+    {
+        <p>Loading...</p>
+    }
+    else
+    {
+        <MudSimpleTable Hover="true" 
+                        Dense="true" 
+                        Elevation="3" 
+                        FixedHeader="true"
+                        Style="height:500px;">
+            <thead>
+                <tr>
+                    <th>@L["Name"]</th>
+                    <th>@L["Symbol"]</th>
+                    <th>@L["Base10"]</th>
+                    <th><abbr title="Decimal value">@L["Decimal"]</abbr></th>
+                    <th><abbr title="English word">@L["Word"]</abbr></th>
                 </tr>
-            }
-        </tbody>
-    </table>
-}
+            </thead>
+            <tbody>
+                @foreach (var item in siPrefixes)
+                {
+                    <tr>
+                        <td>@item.Name</td>
+                        <td>@item.Symbol</td>
+                        <td>@((MarkupString)item.Base10)</td>
+                        <td>@item.DecimalValue</td>
+                        <td>@item.InWords</td>
+                    </tr>
+                }
+            </tbody>
+        </MudSimpleTable>
+    }
+</MudContainer>
 
 @code {
 
