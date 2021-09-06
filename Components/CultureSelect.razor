@@ -1,10 +1,9 @@
-﻿@using  System.Globalization
+﻿@using System.Globalization
 
 @inject IJSRuntime JSRuntime
 @inject NavigationManager Nav
 
-<MudSelect Placeholder="Select culture"
-           @bind-Value="Culture"
+<MudSelect @bind-Value="Culture"
            ToStringFunc="@convertFunc"
            OffsetY="true"
            OpenIcon="@Icons.Material.Filled.Language"
