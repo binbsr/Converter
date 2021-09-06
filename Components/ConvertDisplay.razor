@@ -16,10 +16,12 @@
     <MudGrid Class="my-4">
         <MudItem xs="12" sm="12" md="5" Class="d-flex align-center justify-center">
             <MudNumericField @bind-Value="LeftInput"
+                             HideSpinButtons="true"
                              Label="@SelectedUnitLeft"
                              Immediate="true"
                              Variant="Variant.Text" />
-            <MudSelect T="string" 
+            <MudSelect T="string"
+                       Dense="true"
                        Label="From Unit"
                        @bind-Value="SelectedUnitLeft" 
                        Variant="Variant.Filled" 
@@ -31,14 +33,16 @@
             </MudSelect>
         </MudItem>
         <MudItem xs="12" sm="12" md="2" Class="d-flex align-center justify-center">
-            <MudIcon Style="font-size:4rem;" Icon="@Icons.Material.Filled.Repeat" Color="@Color.Info" />
+            <MudIcon Style="font-size:3.5rem;" Icon="@Icons.Material.Filled.Repeat" Color="@Color.Primary" />
         </MudItem>
         <MudItem xs="12" sm="12" md="5" Class="d-flex align-center justify-center">
             <MudNumericField @bind-Value="RightInput"
+                             HideSpinButtons="true"
                              Label="@SelectedUnitRight"
                              Disabled="true"
                              Variant="Variant.Text" />
             <MudSelect T="string"
+                       Dense="true"
                        Label="To Unit"
                        @bind-Value="SelectedUnitRight"
                        Variant="Variant.Filled"
