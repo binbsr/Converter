@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Converter.Data.Constants;
+using System.Collections.Generic;
 
 namespace Converter.Data
 {
@@ -18,7 +19,7 @@ namespace Converter.Data
                 [LengthUnit.MicroMetre] = ("Micrometre", "µm", IData.SI, IData.SIUnit, 0.00003937007874015748),
                 [LengthUnit.NanoMetre] = ("Nanometre", "nm", IData.SI, IData.SIUnit, 0.0000000393700787402),
                 [LengthUnit.Mile] = ("Mile", "mi", IData.Imperial, IData.ImperialAndUSCustomaryLength, 63360),
-                [LengthUnit.Yard] = ("Yard", "yd", IData.Imperial, IData.ImperialAndUSCustomaryLength, 36),
+                [LengthUnit.Yard] = ("Yard (गज)", "yd", IData.Imperial, IData.ImperialAndUSCustomaryLength, 36),
                 [LengthUnit.Feet] = ("Feet", "ft", IData.Imperial, IData.ImperialAndUSCustomaryLength, 12),
                 [LengthUnit.Inch] = ("Inch", "in", IData.Imperial, IData.ImperialAndUSCustomaryLength, 1),
                 [LengthUnit.Angul] = ("अँगुल", "अँगुल", IData.Nepali, IData.NepalIndiaCustomaryLength, 0.75),
