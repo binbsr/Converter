@@ -3,7 +3,7 @@ name: DeployToGitHubPages
 
 # B. Define a environment variable to indicate the publish location from the Blazor WebAssembly App
 env:
-  PUBLISH_DIR: bin/Release/net5.0/publish/wwwroot
+  PUBLISH_DIR: bin/Release/net7.0/publish/wwwroot
 
 # C. Controls when the action will run, in this case only checkins on master branch
 on:
