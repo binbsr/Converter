@@ -1,36 +1,23 @@
-using System;
-using System.Net.Http;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
-using Microsoft.Extensions.DependencyInjection;
 using Converter.Transform;
 using Converter.Data;
-using System.Globalization;
-using Microsoft.JSInterop;
 using MudBlazor.Services;
+using Converter;
+using Microsoft.AspNetCore.Components.Web;
 
-namespace Converter
-{
-    public class Program
-    {
-        public static async Task Main(string[] args)
-        {
-            var builder = WebAssemblyHostBuilder.CreateDefault(args);
-            builder.RootComponents.Add<App>("#app");
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+builder.RootComponents.Add<HeadOutlet>("head::after");
 
-            builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
-            builder.Services.AddLocalization(opts => { opts.ResourcesPath = "Resources"; });
+builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
 
-            // DI Registrations
-            builder.Services.AddScoped<IData, AreaData>();
-            builder.Services.AddScoped<IData, LengthData>();
-            builder.Services.AddScoped<ITransformer, Transformer>();
-            builder.Services.AddSingleton<AppSettings>();
+// DI Registrations
+builder.Services.AddScoped<IData, AreaData>();
+builder.Services.AddScoped<IData, LengthData>();
+builder.Services.AddScoped<ITransformer, Transformer>();
+builder.Services.AddSingleton<AppSettings>();
 
-            builder.Services.AddMudServices();
+builder.Services.AddMudServices();
 
-            var host = builder.Build();
-            await host.RunAsync();
-        }
-    }
-}
+var host = builder.Build();
+await host.RunAsync();

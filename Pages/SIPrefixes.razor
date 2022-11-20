@@ -1,7 +1,6 @@
 ﻿@page "/si-prefixes"
 
 @inject HttpClient Http
-@inject IStringLocalizer<SIPrefixes> L
 
 @using Converter.Models
 
@@ -19,11 +18,11 @@
                         Style="height:500px;">
             <thead>
                 <tr>
-                    <th>@L["Name"]</th>
-                    <th>@L["Symbol"]</th>
-                    <th>@L["Base10"]</th>
-                    <th><abbr title="Decimal value">@L["Decimal"]</abbr></th>
-                    <th><abbr title="English word">@L["Word"]</abbr></th>
+                    <th>Name</th>
+                    <th>Symbol</th>
+                    <th>Base 10</th>
+                    <th><abbr title="Decimal value">Decimal</abbr></th>
+                    <th><abbr title="English word">Word</abbr></th>
                 </tr>
             </thead>
             <tbody>

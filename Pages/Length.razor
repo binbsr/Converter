@@ -2,7 +2,6 @@
 
 @inject AppSettings settings
 @inject ITransformer transformer
-@inject IStringLocalizer<Length> L
 
 @using Models
 @using Data
@@ -11,7 +10,7 @@
 
 @if (lengthOptionUnits == null)
 {
-    <p>@L["Loading"]</p>
+    <label>Loading..</label>
 }
 else
 {
